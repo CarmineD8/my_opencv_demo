@@ -12,7 +12,7 @@ class MinimalImagePublisher : public rclcpp::Node {
 public:
   MinimalImagePublisher() : Node("opencv_image_publisher"), count_(0) {
     publisher_ =
-        this->create_publisher<sensor_msgs::msg::Image>("random_image", 10);
+        this->create_publisher<sensor_msgs::msg::Image>("image_output", 10);
     timer_ = this->create_wall_timer(
         500ms, std::bind(&MinimalImagePublisher::timer_callback, this));
   }

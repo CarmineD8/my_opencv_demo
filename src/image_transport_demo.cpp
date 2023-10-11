@@ -45,8 +45,8 @@ public:
         cv::namedWindow(OPENCV_WINDOW);
 
         rmw_qos_profile_t custom_qos = rmw_qos_profile_default;
-        pub_ = image_transport::create_publisher(this, "out_image_base_topic", custom_qos);
-        sub_ = image_transport::create_subscription(this, "in_image_base_topic",
+        pub_ = image_transport::create_publisher(this, "image_output", custom_qos);
+        sub_ = image_transport::create_subscription(this, "camera/image_raw",
                 std::bind(&ImageConverter::imageCallback, this, std::placeholders::_1), "raw", custom_qos);
 
 //        pub = it.advertise("out_image_base_topic", 1);

@@ -18,7 +18,7 @@ class MinimalSubscriber : public rclcpp::Node
     : Node("minimal_subscriber")
     {
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+      "camera/image_raw", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
       cv::namedWindow(OPENCV_WINDOW);
     }
     
